@@ -6,6 +6,10 @@ tripod, and a **wrist camera** rides on the gripper. The arm picks and places 30
 towers. Every move is recorded as synchronised RGB-D video, wrist video and joint angles, so the recordings can
 later train world models (e.g. NVIDIA Cosmos).
 
+[![Autonomous pick-and-place, real footage at 8x speed](docs/media/pick_place_preview.gif)](docs/media/pick_place_9moves_8x.mp4)
+
+*Real footage, 8× speed: one move of the autonomous loop. **[Full video](docs/media/pick_place_9moves_8x.mp4)** (107 s): 9 consecutive moves from an unattended run, each placement camera-verified. [Manifest](docs/media/pick_place_9moves_8x.json): source sessions, script, git hash, `"synthetic": false`.*
+
 ![The setup, top-down](docs/photos/setup_topdown.jpg)
 
 *Top-down view on the first day: arm on its base plate, Jetson in a case beside it, RealSense on a mini tripod
@@ -32,6 +36,36 @@ twin leaves out: the arm sags under gravity, servos heat up, cables drag, camera
 blocks around, and an opened gripper does not mean a block was placed.
 
 **[docs/METHODOLOGY.md](docs/METHODOLOGY.md) describes the method in detail.**
+
+## What is different here, and what isn't
+
+Most of the building blocks are standard: AprilTags, hand-eye calibration, numerical IK, kinesthetic teaching, and
+recording RGB-D with joint states. What we think is less common is **how the work is organised and checked**:
+
+1. **An AI coding agent as the lab engineer, with no AI in the motion loop.** Language models in robotics usually sit
+   in the runtime loop, as task planners or vision-language-action policies. Here Claude Code wrote the software,
+   drove the arm over ssh, read the recordings and kept the notebook. The robot itself runs deterministic, reviewable
+   code. The AI's flexibility is used where mistakes are cheap (development), not where they are physical (motion).
+2. **Every constant has a measurement behind it.** Grasp height, jaw offset, regional corrections and thermal limits each
+   trace to a dated measurement in the notebook ([correction table](docs/PICK_PLACE_PROTOCOL.md)). Offsets are not
+   hand-tuned without a record.
+3. **An independent sensor decides success.** A move counts only if the camera later finds the block tag-up near its
+   target. The controller's own "placed" was wrong in practice. For training world models, a label from a second
+   sensor is worth more than the script's opinion of itself.
+4. **Failures are kept as data.** Misses, blocked grasps, put-backs and incidents are all recorded and indexed with the
+   successes, so datasets built from this lab include honest failure cases.
+5. **The operator's observations become measurements.** Two short limp-arm demonstrations fixed problems that parameter
+   search had not (§3 of the [methodology](docs/METHODOLOGY.md)). The agent's job was to turn each remark ("it grips on
+   the forward edge") into a number and a test. This needed a few minutes of demonstration, not large teleoperation datasets.
+6. **Drift is detected, not assumed away.** Before a session, SIFT on static scenery checks whether the camera moved.
+   A bumped tripod is corrected by a rotation-only fit in minutes instead of a new calibration tour.
+7. **Failures of the process become rules.** Every incident became a check in code (e.g. motion aborts unless the cat
+   guard's exit code is tested; [list](docs/CLAUDE_CODE_WORKFLOW.md#incidents-and-the-rules-they-produced)). This is
+   standard in safety engineering, but rarely written down in lab robotics.
+
+What this does **not** show: fast motion, dexterous manipulation, a learned policy, or accuracy better than ~5–20 mm. The
+arm is a small hobby-class arm. The claim is about a way of working that got repeatable, verified results from it, and
+should carry over to a larger arm.
 
 ## Architecture
 

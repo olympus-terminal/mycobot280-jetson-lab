@@ -8,3 +8,4 @@ venv/
 .env
 assets/voice/
 models/face/
+!docs/media/*.mp4

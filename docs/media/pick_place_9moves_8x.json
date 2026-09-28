@@ -1,0 +1,58 @@
+{
+ "created": "20260927_164559",
+ "script": "make_promo_cut_20260926_171000.py",
+ "git": "44e2c7feb2765c3c13d076724a3f011ae8772b7e",
+ "synthetic": false,
+ "speed": 8.0,
+ "crop": "540:540:418:0",
+ "trim_start_s": 6.0,
+ "dim_bg": false,
+ "dim_bg_rule": null,
+ "sources": [
+  {
+   "session": "20260927_122603_cycle_demo_20260927_122556_000",
+   "result": "placed",
+   "seconds": 74.6
+  },
+  {
+   "session": "20260927_123100_cycle_demo_20260927_122556_001",
+   "result": "placed",
+   "seconds": 112.0
+  },
+  {
+   "session": "20260927_123534_cycle_demo_20260927_122556_002",
+   "result": "placed",
+   "seconds": 94.4
+  },
+  {
+   "session": "20260927_124053_cycle_demo_20260927_122556_003",
+   "result": "placed",
+   "seconds": 82.2
+  },
+  {
+   "session": "20260927_124455_cycle_demo_20260927_122556_004",
+   "result": "placed",
+   "seconds": 64.0
+  },
+  {
+   "session": "20260927_124838_cycle_demo_20260927_122556_005",
+   "result": "placed",
+   "seconds": 94.5
+  },
+  {
+   "session": "20260927_125254_cycle_demo_20260927_122556_006",
+   "result": "placed",
+   "seconds": 91.4
+  },
+  {
+   "session": "20260927_125706_cycle_demo_20260927_122556_007",
+   "result": "placed",
+   "seconds": 94.3
+  },
+  {
+   "session": "20260927_130120_cycle_demo_20260927_122556_008",
+   "result": "placed",
+   "seconds": 96.3
+  }
+ ]
+}
