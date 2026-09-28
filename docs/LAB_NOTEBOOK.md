@@ -159,3 +159,13 @@ and the operator confirmed the tags are not crooked. Of 44 held grasps that day,
 side view.
 
 **Chess groundwork** (for a larger arm): see [CHESS.md](CHESS.md).
+
+---
+
+## 09-28: equipment labels
+
+**A2S2 GROUP labels on the PT-P710BT (24 mm tape).** The first print (job `PT-P710BT-4`, artwork centred on the 24 mm page)
+had its top clipped. The `ptouch-pt` driver renders 170 px across at 180 dpi, but the head prints only 128 px (about 18 mm).
+The v2 layout keeps everything inside 6–24 mm of the page (job `PT-P710BT-6`, approved by the operator). **20 labels
+printed** (job `PT-P710BT-7`, about 2 min, about 2 m of tape). Files, the reprint command and the calibration strip are in
+[../labels/README.md](../labels/README.md).

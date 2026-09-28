@@ -9,3 +9,6 @@ venv/
 assets/voice/
 models/face/
 !docs/media/*.mp4
+labels/fonts/
+labels/output/
+labels/fonts.conf

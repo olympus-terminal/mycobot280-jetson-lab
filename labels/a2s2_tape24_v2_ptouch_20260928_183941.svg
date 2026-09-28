@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24mm" height="72.0mm" viewBox="0 0 24 72.0"><g transform="translate(24 0) rotate(90)">
+  <text x="4.0" y="9.0" font-family="DejaVu Sans Mono" font-weight="bold" font-size="1.8" letter-spacing="0.45" fill="#000000">LAB EQUIPMENT</text>
+  <text x="51.0" y="9.0" font-family="DejaVu Sans Mono" font-weight="bold" font-size="1.8" fill="#000000">EQ №</text>
+  <line x1="56.5" y1="9.1" x2="68.0" y2="9.1" stroke="#000000" stroke-width="0.2"/>
+  <text x="3.6" y="17.6" font-family="Syncopate" font-weight="bold" font-size="9" fill="#000000">A<tspan font-size="4.1" dx="0.35" dy="-4.7">2</tspan><tspan dx="0.9" dy="4.7">S</tspan><tspan font-size="4.1" dx="0.35" dy="-4.7">2</tspan></text>
+  <line x1="30.6" y1="11.2" x2="30.6" y2="17.6" stroke="#000000" stroke-width="0.35"/>
+  <text x="33.2" y="17.6" font-family="Syncopate" font-size="6.2" fill="#000000" textLength="34.8" lengthAdjust="spacing">GROUP</text>
+  <line x1="4.0" y1="19.2" x2="68.0" y2="19.2" stroke="#000000" stroke-width="0.3"/>
+  <text x="4.0" y="22.1" font-family="DejaVu Sans Mono" font-size="1.55" fill="#000000" textLength="64.0" lengthAdjust="spacing">PROPERTY OF A2S2 GROUP · DO NOT REMOVE</text>
+</g></svg>
