@@ -14,6 +14,10 @@ These are the rules the lab ran under, condensed. If you point an agent at your 
   The chat transcript is not the record.
 - Correct wrong entries visibly (strike through, then give the correction), and commit documentation after each meaningful step.
 
+## Publishing media
+- Never publish photos or video that show people, or any media from incidents. Incidents are documented in text only.
+- Crop published images to the table and arm, and look at every frame or image before it goes out.
+
 ## Provenance
 - New programs and result files get a timestamp (YYYYMMDD_HHMMSS) so outputs never overwrite each other, and every result
   can be traced to the program that produced it.
