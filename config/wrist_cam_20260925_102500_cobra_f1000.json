@@ -1,0 +1,57 @@
+{
+ "created": "2026-09-25T10:24:23",
+ "scan": "data/20260925_101621_cycle_cobra_full/wrist_scan",
+ "targets": {
+  "4": {
+   "center": [
+    211.2,
+    121.3
+   ],
+   "yaw_deg": 75.1,
+   "files": [
+    "j1_-040_0.jpg",
+    "j1_-040_1.jpg",
+    "j1_-052_0.jpg",
+    "j1_-052_1.jpg",
+    "j1_-064_0.jpg",
+    "j1_-064_1.jpg",
+    "j1_-076_0.jpg",
+    "j1_-076_1.jpg"
+   ]
+  }
+ },
+ "yaw_k90": 2,
+ "f": 999.9923429149487,
+ "cx": 319.54816133294025,
+ "cy": 239.81981464369824,
+ "k1": -0.0014884634245230864,
+ "R_cam_flange": [
+  [
+   -0.6755106167652838,
+   -0.7349273434736638,
+   0.05972609523591156
+  ],
+  [
+   0.7273290198841027,
+   -0.6774493790736719,
+   -0.10979451546924822
+  ],
+  [
+   0.12115239771385596,
+   -0.030726838552637234,
+   0.992158232300042
+  ]
+ ],
+ "t_cam_flange_mm": [
+  2.9692001319074404,
+  39.55627461322569,
+  -0.8652743136433707
+ ],
+ "rms_px": 3.503097274613724,
+ "n_views": 8,
+ "n_obs": 8,
+ "dropped": [],
+ "note": "p_cam = R p_flange + t; distortion x_d = x (1 + k1 r^2)",
+ "note_validity": "f is NOT observable from this single-block scan (f 800-1200 fit equally, RMS 3.5 px); f=1000 chosen because it puts the camera ~40 mm from the flange (physically plausible). Ray-plane mapping validated for the upright-cobra pose family only: block A (not in the fit) maps to the same xy within ~4 mm across 4 views for any f in 800-1200. Target = RealSense block tag4 top (211.2,121.3) at 10:20.",
+ "cmd": "scripts/wrist_calib.py <cobra_full scan> tgt_c.json 1000 5"
+}

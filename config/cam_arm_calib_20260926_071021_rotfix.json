@@ -1,0 +1,75 @@
+{
+ "created": "2026-09-26T07:10:21",
+ "session": "20260925_115243_cycle_calib_tour_newcam",
+ "method": "Kabsch init, then tag-center REPROJECTION refinement (R, t, tag offset); errors in mm are lateral (px * Z / f)",
+ "R_base_to_cam": [
+  [
+   -0.7213294682640911,
+   -0.6893230201678959,
+   -0.06721288626784061
+  ],
+  [
+   -0.5138236671072607,
+   0.5976891838081554,
+   -0.6154290200170832
+  ],
+  [
+   0.46440180591196045,
+   -0.40939151606420826,
+   -0.7853213031876562
+  ]
+ ],
+ "t_base_to_cam_mm": [
+  116.02584970026334,
+  -12.085017021628875,
+  995.8819433094336
+ ],
+ "camera_in_base_mm": [
+  -385.00607624194026,
+  494.90799168531584,
+  782.4482675983426
+ ],
+ "tag_offset_flange_mm": [
+  -9.339668500496325,
+  14.691408064978598,
+  95.24678045204233
+ ],
+ "rms_mm": 0.2562842949001345,
+ "max_mm": 0.3885041516264286,
+ "residuals_mm": {
+  "hold_near_r150_th60_z80": 0.15070156034774576,
+  "hold_near_r180_th75_z80": 0.27753914839724225,
+  "hold_near_r210_th60_z120": 0.18485939596354506,
+  "hold_near_r180_th100_z120": 0.3885041516264286,
+  "hold_near_r150_th90_z120": 0.20570530980299,
+  "hold_near_r210_th85_z80": 0.17966618253685965,
+  "hold_lateral_r180_th40_z80": 0.31674825298241516
+ },
+ "loo_errors_mm": {
+  "hold_near_r150_th60_z80": 0.2893966228868031,
+  "hold_near_r180_th75_z80": 0.36315532122897537,
+  "hold_near_r210_th60_z120": 2.1510528284875727,
+  "hold_near_r180_th100_z120": 0.8663302712548183,
+  "hold_near_r150_th90_z120": 0.5349337754197296,
+  "hold_near_r210_th85_z80": 0.5639667563418316,
+  "hold_lateral_r180_th40_z80": 1.1911513290908002
+ },
+ "loo_rms_mm": 1.0430890071356296,
+ "n_holds": 7,
+ "intrinsics": {
+  "fx": 918.6089477539062,
+  "fy": 918.8965454101562,
+  "ppx": 633.5445556640625,
+  "ppy": 369.24212646484375,
+  "model": "distortion.inverse_brown_conrady",
+  "coeffs": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ "note": "p_cam = R p_base + t (mm); controller (get_coords) frame for base",
+ "derived_from": "cam_arm_calib_20260925_115724.json + camera rotation [0.04, 0.464, 0.48] deg (pure-rotation fit of 140 SIFT inliers, catguard_ref.jpg (2026-09-25 ~12:00) vs 2026-09-26 wake frame; median residual 0.67 px)"
+}

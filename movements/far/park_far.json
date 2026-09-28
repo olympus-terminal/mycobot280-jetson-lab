@@ -1,0 +1,58 @@
+{
+ "name": "park_far",
+ "description": "Far home -> pre-rest -> REST_FAR (REST with J1 -115: hand resting on the table at theta ~-98) -> release",
+ "created": "2026-09-25",
+ "generator": "scripts/far_side.py",
+ "start_pose": [
+  -103.12,
+  -34.74,
+  -73.98,
+  -13.08,
+  53.96,
+  20.0
+ ],
+ "units": "degrees; speed 1-100",
+ "steps": [
+  {
+   "label": "home_far",
+   "angles": [
+    -103.12,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "pre_rest",
+   "angles": [
+    -115.0,
+    -85.11,
+    -31.11,
+    38.93,
+    97.55,
+    34.89
+   ],
+   "speed": 10
+  },
+  {
+   "label": "rest",
+   "angles": [
+    -115.0,
+    -105.11,
+    -31.11,
+    38.93,
+    97.55,
+    34.89
+   ],
+   "speed": 5
+  },
+  {
+   "label": "release",
+   "release": true
+  }
+ ],
+ "allow_hot": true
+}

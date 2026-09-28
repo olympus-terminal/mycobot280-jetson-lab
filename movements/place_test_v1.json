@@ -1,0 +1,13 @@
+{
+  "name": "place_test_v1",
+  "description": "Continues pick_test_v1: carry the held block by rotating ~25 deg about the base (fingertip (9,180) -> (84.2,159.3)), lower to fingertip z 24 mm, release, lift. Poses from scripts/kinematics.py (tool 60 deg from vertical).",
+  "created": "2026-09-24",
+  "units": "degrees; speed 1-100",
+  "steps": [
+    {"label": "carry_z80", "angles": [44.1, -35.4, -72.9, -13.4, 54.0, 20.0], "speed": 10},
+    {"label": "lower_z40", "angles": [44.1, -45.3, -81.7, 5.3, 54.0, 20.0], "speed": 10},
+    {"label": "lower_z24", "angles": [44.1, -50.7, -82.7, 11.7, 54.0, 20.0], "speed": 8},
+    {"label": "release", "gripper": "open"},
+    {"label": "lift_z80", "angles": [44.1, -35.4, -72.9, -13.4, 54.0, 20.0], "speed": 10}
+  ]
+}

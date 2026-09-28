@@ -1,0 +1,53 @@
+{
+ "name": "unpark_here",
+ "description": "Lift J2 +20 from the current resting pose, then near home",
+ "created": "2026-09-25",
+ "generator": "scripts/unpark_here.py",
+ "start_pose": [
+  64.68,
+  -101.25,
+  -31.28,
+  23.73,
+  97.91,
+  24.25
+ ],
+ "units": "degrees",
+ "steps": [
+  {
+   "label": "lying",
+   "angles": [
+    64.68,
+    -101.25,
+    -31.28,
+    23.73,
+    97.91,
+    24.25
+   ],
+   "speed": 5
+  },
+  {
+   "label": "lift",
+   "angles": [
+    64.68,
+    -81.25,
+    -31.28,
+    23.73,
+    97.91,
+    24.25
+   ],
+   "speed": 8
+  },
+  {
+   "label": "home",
+   "angles": [
+    69.02,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  }
+ ]
+}

@@ -1,0 +1,40 @@
+{
+ "name": "precise_step",
+ "description": "precise.py correction step",
+ "created": "2026-09-25",
+ "start_pose": [
+  -82.44,
+  -42.27,
+  -73.47,
+  -7.47,
+  52.29,
+  20.39
+ ],
+ "units": "degrees",
+ "steps": [
+  {
+   "label": "from",
+   "angles": [
+    -82.44,
+    -42.27,
+    -73.47,
+    -7.47,
+    52.29,
+    20.39
+   ],
+   "speed": 10
+  },
+  {
+   "label": "probe_down",
+   "angles": [
+    -81.73,
+    -42.75,
+    -74.52,
+    -3.77,
+    54.3,
+    20.0
+   ],
+   "speed": 5
+  }
+ ]
+}

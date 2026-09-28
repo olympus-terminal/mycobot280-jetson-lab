@@ -1,0 +1,93 @@
+{
+ "name": "place",
+ "description": "Place the held block at r=180.0 theta=-85.0 level 0 (fingertip z 22.0)",
+ "created": "2026-09-25",
+ "generator": "scripts/far_side.py",
+ "start_pose": [
+  -103.12,
+  -34.74,
+  -73.98,
+  -13.08,
+  53.96,
+  20.0
+ ],
+ "units": "degrees; speed 1-100",
+ "steps": [
+  {
+   "label": "home_far",
+   "angles": [
+    -103.12,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "above_slot",
+   "angles": [
+    -103.12,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "near_slot",
+   "angles": [
+    -103.12,
+    -45.72,
+    -83.1,
+    7.01,
+    53.96,
+    20.0
+   ],
+   "speed": 8
+  },
+  {
+   "label": "down_to_slot",
+   "angles": [
+    -103.12,
+    -50.94,
+    -83.86,
+    13.0,
+    53.96,
+    20.0
+   ],
+   "speed": 5
+  },
+  {
+   "label": "release",
+   "gripper": "open"
+  },
+  {
+   "label": "clear",
+   "angles": [
+    -103.12,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 8
+  },
+  {
+   "label": "home_far",
+   "angles": [
+    -103.12,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  }
+ ]
+}

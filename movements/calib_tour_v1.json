@@ -1,0 +1,241 @@
+{
+ "name": "calib_tour_v1",
+ "description": "Camera-arm calibration: gripper closes on a tagged block (placed by hand), visits 12 poses (working tilt) holding 2 s each, returns home.",
+ "created": "2026-09-25",
+ "generator": "inline (scripts/gen_movements.py helpers, path_ok validated)",
+ "start_pose": [
+  69.02,
+  -34.74,
+  -73.98,
+  -13.08,
+  53.96,
+  20.0
+ ],
+ "units": "degrees; speed 1-100",
+ "steps": [
+  {
+   "label": "home",
+   "angles": [
+    69.02,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "close",
+   "gripper": "close"
+  },
+  {
+   "label": "settle",
+   "wait": 1
+  },
+  {
+   "label": "r150_z80_az-25",
+   "angles": [
+    41.2,
+    -22.91,
+    -90.68,
+    -11.36,
+    52.41,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r150_z80_az-25",
+   "wait": 2.0
+  },
+  {
+   "label": "r150_z80_az+25",
+   "angles": [
+    91.2,
+    -22.91,
+    -90.68,
+    -11.36,
+    52.41,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r150_z80_az+25",
+   "wait": 2.0
+  },
+  {
+   "label": "r180_z80_az+0",
+   "angles": [
+    69.02,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r180_z80_az+0",
+   "wait": 2.0
+  },
+  {
+   "label": "r180_z80_az-12",
+   "angles": [
+    57.02,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r180_z80_az-12",
+   "wait": 2.0
+  },
+  {
+   "label": "r210_z80_az+0",
+   "angles": [
+    71.22,
+    -49.18,
+    -49.93,
+    -20.04,
+    55.07,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r210_z80_az+0",
+   "wait": 2.0
+  },
+  {
+   "label": "r210_z80_az-12",
+   "angles": [
+    59.22,
+    -49.18,
+    -49.93,
+    -20.04,
+    55.07,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r210_z80_az-12",
+   "wait": 2.0
+  },
+  {
+   "label": "r150_z120_az+0",
+   "angles": [
+    66.2,
+    -18.46,
+    -72.4,
+    -34.09,
+    52.41,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r150_z120_az+0",
+   "wait": 2.0
+  },
+  {
+   "label": "r150_z120_az-12",
+   "angles": [
+    54.2,
+    -18.46,
+    -72.4,
+    -34.09,
+    52.41,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r150_z120_az-12",
+   "wait": 2.0
+  },
+  {
+   "label": "r180_z120_az-25",
+   "angles": [
+    44.02,
+    -31.71,
+    -54.72,
+    -35.38,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r180_z120_az-25",
+   "wait": 2.0
+  },
+  {
+   "label": "r180_z120_az+25",
+   "angles": [
+    94.02,
+    -31.71,
+    -54.72,
+    -35.38,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r180_z120_az+25",
+   "wait": 2.0
+  },
+  {
+   "label": "r210_z120_az-25",
+   "angles": [
+    46.22,
+    -51.76,
+    -20.88,
+    -46.51,
+    55.07,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r210_z120_az-25",
+   "wait": 2.0
+  },
+  {
+   "label": "r210_z120_az+25",
+   "angles": [
+    96.22,
+    -51.76,
+    -20.88,
+    -46.51,
+    55.07,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r210_z120_az+25",
+   "wait": 2.0
+  },
+  {
+   "label": "home",
+   "angles": [
+    69.02,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  }
+ ]
+}

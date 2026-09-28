@@ -1,0 +1,41 @@
+{
+ "name": "hover",
+ "description": "Hover the fingertip point at r=218.0 theta=-45.0 z=80",
+ "created": "2026-09-25",
+ "generator": "scripts/far_side.py",
+ "start_pose": [
+  -103.12,
+  -34.74,
+  -73.98,
+  -13.08,
+  53.96,
+  20.0
+ ],
+ "units": "degrees; speed 1-100",
+ "steps": [
+  {
+   "label": "from",
+   "angles": [
+    -103.12,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hover",
+   "angles": [
+    -60.42,
+    -54.12,
+    -40.92,
+    -23.47,
+    55.32,
+    20.0
+   ],
+   "speed": 8
+  }
+ ]
+}

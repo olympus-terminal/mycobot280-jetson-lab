@@ -1,0 +1,9 @@
+{
+  "name": "idle_5s",
+  "description": "No motion: 5 s of joint logging. For testing the recording pipeline without moving the arm.",
+  "created": "2026-09-24",
+  "units": "seconds",
+  "steps": [
+    {"label": "idle", "wait": 5}
+  ]
+}

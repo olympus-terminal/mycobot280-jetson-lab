@@ -1,0 +1,97 @@
+{
+ "name": "pick",
+ "description": "Pick the block at r=200.0 theta=-71.0 (grasp fingertip z 20.0)",
+ "created": "2026-09-25",
+ "generator": "scripts/far_side.py",
+ "start_pose": [
+  -103.12,
+  -34.74,
+  -73.98,
+  -13.08,
+  53.96,
+  20.0
+ ],
+ "units": "degrees; speed 1-100",
+ "steps": [
+  {
+   "label": "home_far",
+   "angles": [
+    -103.12,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "open",
+   "gripper": "open"
+  },
+  {
+   "label": "above_block",
+   "angles": [
+    -87.6,
+    -43.86,
+    -59.19,
+    -16.93,
+    54.74,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "near_block",
+   "angles": [
+    -87.6,
+    -52.53,
+    -68.34,
+    0.88,
+    54.74,
+    20.0
+   ],
+   "speed": 8
+  },
+  {
+   "label": "down_to_block",
+   "angles": [
+    -87.6,
+    -58.83,
+    -69.26,
+    8.11,
+    54.74,
+    20.0
+   ],
+   "speed": 6
+  },
+  {
+   "label": "grasp",
+   "gripper": "close"
+  },
+  {
+   "label": "lift",
+   "angles": [
+    -87.6,
+    -43.86,
+    -59.19,
+    -16.93,
+    54.74,
+    20.0
+   ],
+   "speed": 8
+  },
+  {
+   "label": "home_far",
+   "angles": [
+    -103.12,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  }
+ ]
+}

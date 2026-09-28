@@ -1,0 +1,57 @@
+{
+ "name": "gripper_cycle",
+ "description": "Open/close the gripper three times at home",
+ "created": "2026-09-25",
+ "start_pose": [
+  69.02,
+  -34.74,
+  -73.98,
+  -13.08,
+  53.96,
+  20.0
+ ],
+ "units": "degrees; speed 1-100",
+ "generator": "scripts/gen_movements.py",
+ "steps": [
+  {
+   "label": "home",
+   "angles": [
+    69.02,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "open0",
+   "gripper": "open"
+  },
+  {
+   "label": "close0",
+   "gripper": "close"
+  },
+  {
+   "label": "open1",
+   "gripper": "open"
+  },
+  {
+   "label": "close1",
+   "gripper": "close"
+  },
+  {
+   "label": "open2",
+   "gripper": "open"
+  },
+  {
+   "label": "close2",
+   "gripper": "close"
+  },
+  {
+   "label": "open",
+   "gripper": "open"
+  }
+ ]
+}

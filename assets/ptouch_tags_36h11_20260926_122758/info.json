@@ -1,0 +1,34 @@
+{
+ "generated": "20260926_122759",
+ "script": "make_ptouch_tags_20260925_202148.py",
+ "opencv": "5.0.0",
+ "python": "3.12.3",
+ "family": "tag36h11 (cv2.aruco.DICT_APRILTAG_36h11)",
+ "ids": [
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  30
+ ],
+ "printer": "Brother PT-P710BT, 180 dpi, 24 mm tape",
+ "black_square_px": 128,
+ "dots_per_cell": 16,
+ "quiet_cells_left_right": 2,
+ "black_square_mm_nominal": 18.06,
+ "copies_per_id_strip": {
+  "10-17": 6,
+  "30": 1
+ },
+ "note": "measure the printed black square and set TAG_SIZE_M to it",
+ "runs": [
+  "make_ptouch_tags_20260925_202148.py --ids 10-17 --copies 6",
+  "make_ptouch_tags_20260925_202148.py --ids 30 --copies 1 --out <this dir>"
+ ],
+ "black_square_mm_measured": 18.0,
+ "measured_by": "user, 2026-09-26 test print of ID 10"
+}

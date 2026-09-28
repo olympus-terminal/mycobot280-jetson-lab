@@ -1,0 +1,7 @@
+{
+ "REST": {"angles": [63.89, -105.11, -31.11, 38.93, 97.55, 34.89],
+          "source": "Read from the arm at power-on 2026-09-24 16:43 UTC; the user had laid it on the table (hand resting on its side, flange z 30 mm). Weight carried by the table."},
+ "PRE_REST": {"angles": [63.89, -85.11, -31.11, 38.93, 97.55, 34.89],
+              "source": "REST with J2 +20 deg (model: fingertip z 133 mm, lowest joint frame 98 mm)."},
+ "HOME": {"angles": "computed by scripts/gen_movements.py: working tilt, fingertip r=180 z=80 at the reference azimuth (= verified pre-grasp pose)"}
+}

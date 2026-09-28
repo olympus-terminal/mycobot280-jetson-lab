@@ -1,0 +1,7 @@
+# Laptop side (RealSense, perception, planning, recording). Tested with Python 3.12.3.
+numpy==2.5.3
+opencv-contrib-python-headless==5.0.0.93
+pyrealsense2==2.58.4.10922
+chess==1.11.2            # chess_core only; Stockfish 17.1 binary installed separately
+# optional, make_ptouch_cat_icons only: pillow, scipy
+# system tools used by scripts: ffmpeg (promo/clip cuts), espeak-ng (voice), rsync, ssh

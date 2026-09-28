@@ -1,0 +1,125 @@
+{
+ "name": "pp_3",
+ "description": "Pick block at r=205.0 theta=66.0, place in slot 3 (r=205 theta=97 level 0).",
+ "created": "2026-09-25",
+ "generator": "scripts/pyramid.py",
+ "start_pose": [
+  69.02,
+  -34.74,
+  -73.98,
+  -13.08,
+  53.96,
+  20.0
+ ],
+ "units": "degrees; speed 1-100",
+ "steps": [
+  {
+   "label": "home",
+   "angles": [
+    69.02,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "open",
+   "gripper": "open"
+  },
+  {
+   "label": "above_block",
+   "angles": [
+    49.75,
+    -46.43,
+    -54.77,
+    -18.36,
+    54.91,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "down_to_block",
+   "angles": [
+    49.75,
+    -60.85,
+    -65.07,
+    6.37,
+    54.91,
+    20.0
+   ],
+   "speed": 8
+  },
+  {
+   "label": "grasp",
+   "gripper": "close"
+  },
+  {
+   "label": "lift",
+   "angles": [
+    49.75,
+    -46.43,
+    -54.77,
+    -18.36,
+    54.91,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "above_slot",
+   "angles": [
+    80.75,
+    -46.43,
+    -54.77,
+    -18.36,
+    54.91,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "down_to_slot",
+   "angles": [
+    80.75,
+    -60.19,
+    -65.09,
+    5.72,
+    54.91,
+    20.0
+   ],
+   "speed": 6
+  },
+  {
+   "label": "release",
+   "gripper": "open"
+  },
+  {
+   "label": "clear",
+   "angles": [
+    80.75,
+    -46.43,
+    -54.77,
+    -18.36,
+    54.91,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "home",
+   "angles": [
+    69.02,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  }
+ ]
+}

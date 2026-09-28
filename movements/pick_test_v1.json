@@ -1,0 +1,14 @@
+{
+  "name": "pick_test_v1",
+  "description": "First pick: from the tilted pre-grasp pose, lower onto a 30 mm block placed by hand under the fingertips, grasp, lift. Planned with scripts/kinematics.py (fingertip x=9, y=180; tool 60 deg from vertical toward -x).",
+  "created": "2026-09-24",
+  "units": "degrees; speed 1-100",
+  "steps": [
+    {"label": "pregrasp_z80", "angles": [69.0, -34.8, -73.8, -13.1, 54.0, 20.0], "speed": 10},
+    {"label": "gripper_open", "gripper": "open"},
+    {"label": "lower_z40", "angles": [69.0, -44.8, -82.6, 5.7, 54.0, 20.0], "speed": 10},
+    {"label": "lower_z20", "angles": [69.0, -51.8, -83.7, 13.7, 54.0, 20.0], "speed": 8},
+    {"label": "grasp", "gripper": "close"},
+    {"label": "lift_z80", "angles": [69.0, -34.8, -73.8, -13.1, 54.0, 20.0], "speed": 10}
+  ]
+}

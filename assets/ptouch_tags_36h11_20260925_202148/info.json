@@ -1,0 +1,24 @@
+{
+ "generated": "20260925_202148",
+ "script": "make_ptouch_tags_20260925_202148.py",
+ "opencv": "5.0.0",
+ "python": "3.12.3",
+ "family": "tag36h11 (cv2.aruco.DICT_APRILTAG_36h11)",
+ "ids": [
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  30
+ ],
+ "printer": "Brother PT-P710BT, 180 dpi, 24 mm tape",
+ "black_square_px": 128,
+ "dots_per_cell": 16,
+ "quiet_cells_left_right": 2,
+ "black_square_mm_nominal": 18.06,
+ "note": "measure the printed black square and set TAG_SIZE_M to it"
+}

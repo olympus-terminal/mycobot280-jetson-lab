@@ -1,0 +1,58 @@
+{
+ "name": "park",
+ "description": "Go to the remembered REST pose (hand on the table), then release the servos",
+ "created": "2026-09-25",
+ "allow_hot": true,
+ "start_pose": [
+  69.02,
+  -34.74,
+  -73.98,
+  -13.08,
+  53.96,
+  20.0
+ ],
+ "units": "degrees; speed 1-100",
+ "generator": "scripts/gen_movements.py",
+ "steps": [
+  {
+   "label": "home",
+   "angles": [
+    69.02,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "pre_rest",
+   "angles": [
+    63.89,
+    -85.11,
+    -31.11,
+    38.93,
+    97.55,
+    34.89
+   ],
+   "speed": 10
+  },
+  {
+   "label": "rest",
+   "angles": [
+    63.89,
+    -105.11,
+    -31.11,
+    38.93,
+    97.55,
+    34.89
+   ],
+   "speed": 5
+  },
+  {
+   "label": "release",
+   "release": true
+  }
+ ]
+}

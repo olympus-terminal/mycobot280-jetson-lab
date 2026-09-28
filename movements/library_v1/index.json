@@ -1,0 +1,152 @@
+{
+ "generated": "2026-09-25T06:21:41",
+ "generator": "scripts/gen_movements.py",
+ "constraints": {
+  "windows_deg": [
+   [
+    30.0,
+    100.0
+   ],
+   [
+    -135.0,
+    135.0
+   ],
+   [
+    -150.0,
+    150.0
+   ],
+   [
+    -145.0,
+    145.0
+   ],
+   [
+    50.0,
+    110.0
+   ],
+   [
+    -10.0,
+    35.0
+   ]
+  ],
+  "frame_margin_mm": 25.0,
+  "tip_min_mm": 30.0,
+  "tip_min_grasp_mm": 15.0,
+  "table_z_estimate_mm": 0.0,
+  "tilt_deg": 60,
+  "gripper_len_mm": 100.0
+ },
+ "movements": [
+  {
+   "name": "sweep_j1",
+   "file": "sweep_j1.json",
+   "sha256": "a8bb032088d04661f384fb7601ffe5fa9943eda1580ab498bbfa0126b58d1d84",
+   "steps": 4,
+   "est_duration_s": 10.9,
+   "description": "J1 base rotation across the working sector"
+  },
+  {
+   "name": "sweep_j2",
+   "file": "sweep_j2.json",
+   "sha256": "033c0289182baf3f1e0586c9ecd5c784474e3a9e837e0a8616ea6599fe55587f",
+   "steps": 4,
+   "est_duration_s": 5.9,
+   "description": "J2 shoulder +-10 deg"
+  },
+  {
+   "name": "sweep_j3",
+   "file": "sweep_j3.json",
+   "sha256": "c07ea0079a79ef03646fb85288ef2c80ffff7d33f868bc5bd5521f7803da02f9",
+   "steps": 4,
+   "est_duration_s": 6.4,
+   "description": "J3 elbow +-12 deg"
+  },
+  {
+   "name": "sweep_j4",
+   "file": "sweep_j4.json",
+   "sha256": "6dae6c334e21c27e24ffcdf3a28ff704d81fb81bec79e297b6f5c894536fceda",
+   "steps": 4,
+   "est_duration_s": 7.3,
+   "description": "J4 wrist +-15 deg"
+  },
+  {
+   "name": "sweep_j5",
+   "file": "sweep_j5.json",
+   "sha256": "52aa8dedf6d3efe8b666c8497dd796da6b60b15095773efea63006b3bdb0a3b3",
+   "steps": 4,
+   "est_duration_s": 10.3,
+   "description": "J5 wrist tilt 60..105 deg"
+  },
+  {
+   "name": "sweep_j6",
+   "file": "sweep_j6.json",
+   "sha256": "6b8a5d8a2badf82c6c78f59a681c8a57a2e36d3818ca1c1effeb3ded0d2a3901",
+   "steps": 4,
+   "est_duration_s": 7.3,
+   "description": "J6 wrist roll 5..35 deg"
+  },
+  {
+   "name": "reach_grid",
+   "file": "reach_grid.json",
+   "sha256": "3d3c5a4e3ba952abd01a39f55695437b42a9f7da6507d3b3a330adb32a0b8381",
+   "steps": 20,
+   "est_duration_s": 58.5,
+   "description": "Visit a grid of reach points (r 150-210, z 80-120) at three azimuths"
+  },
+  {
+   "name": "vertical_bob",
+   "file": "vertical_bob.json",
+   "sha256": "55bedbc4adf0f57574333095b1a5d26a4d314789ec0349e9842380d0a445fc69",
+   "steps": 7,
+   "est_duration_s": 17.7,
+   "description": "Raise and lower the hand at r=180 (z 40-120), twice"
+  },
+  {
+   "name": "radial_in_out",
+   "file": "radial_in_out.json",
+   "sha256": "cb1a35a3209eb4b4edec591cf62017bda7506c84485f7164df5690311442e865",
+   "steps": 6,
+   "est_duration_s": 16.6,
+   "description": "Move the hand in and out (r 150-210) at z=80"
+  },
+  {
+   "name": "square_rz",
+   "file": "square_rz.json",
+   "sha256": "62ec55ed0647a0b33130d0532b08255c714f9c5e18244b571c2cdee2ef4315ec",
+   "steps": 7,
+   "est_duration_s": 18.7,
+   "description": "Trace a square in the radius-height plane"
+  },
+  {
+   "name": "gripper_cycle",
+   "file": "gripper_cycle.json",
+   "sha256": "08c4602a7e857bf36c0ecec754ce04870e21a9a341f969ec730236b87e25e335",
+   "steps": 8,
+   "est_duration_s": 21.0,
+   "description": "Open/close the gripper three times at home"
+  },
+  {
+   "name": "park",
+   "file": "park.json",
+   "sha256": "1060acd6903f4a2c9052c8044ccf633ec8dcbe69ce8300af99cf968339f80461",
+   "steps": 4,
+   "est_duration_s": 8.6,
+   "description": "Go to the remembered REST pose (hand on the table), then release the servos"
+  },
+  {
+   "name": "unpark",
+   "file": "unpark.json",
+   "sha256": "c3098da2b621b727fe5ea5548b4dfdd77ad3141eac8ee4d60c8a2f36dd8f7ddb",
+   "steps": 3,
+   "est_duration_s": 7.5,
+   "description": "From REST, lift and go to home"
+  },
+  {
+   "name": "air_pick_place",
+   "file": "air_pick_place.json",
+   "sha256": "571df229bffcfce656b0ff05c12a47b039ddf557249534d198be4346d8c9026c",
+   "steps": 12,
+   "est_duration_s": 28.5,
+   "description": "Pick-and-place motion without a block (same poses as the verified pick/place)"
+  }
+ ]
+}

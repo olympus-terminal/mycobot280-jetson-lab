@@ -1,0 +1,75 @@
+{
+ "created": "2026-09-27T17:05:28",
+ "session": "20260925_115243_cycle_calib_tour_newcam",
+ "method": "Kabsch init, then tag-center REPROJECTION refinement (R, t, tag offset); errors in mm are lateral (px * Z / f)",
+ "R_base_to_cam": [
+  [
+   -0.7204343176786251,
+   -0.6901085712272886,
+   -0.06873538993534845
+  ],
+  [
+   -0.513883699646409,
+   0.5977517199842811,
+   -0.615318149003873
+  ],
+  [
+   0.4657230262169275,
+   -0.4079743143562646,
+   -0.7852763982680769
+  ]
+ ],
+ "t_base_to_cam_mm": [
+  117.95054396904314,
+  -12.225830399520428,
+  995.6541009272772
+ ],
+ "camera_in_base_mm": [
+  -385.0060762419406,
+  494.9079916853163,
+  782.4482675983431
+ ],
+ "tag_offset_flange_mm": [
+  -9.339668500496325,
+  14.691408064978598,
+  95.24678045204233
+ ],
+ "rms_mm": 0.2562842949001345,
+ "max_mm": 0.3885041516264286,
+ "residuals_mm": {
+  "hold_near_r150_th60_z80": 0.15070156034774576,
+  "hold_near_r180_th75_z80": 0.27753914839724225,
+  "hold_near_r210_th60_z120": 0.18485939596354506,
+  "hold_near_r180_th100_z120": 0.3885041516264286,
+  "hold_near_r150_th90_z120": 0.20570530980299,
+  "hold_near_r210_th85_z80": 0.17966618253685965,
+  "hold_lateral_r180_th40_z80": 0.31674825298241516
+ },
+ "loo_errors_mm": {
+  "hold_near_r150_th60_z80": 0.2893966228868031,
+  "hold_near_r180_th75_z80": 0.36315532122897537,
+  "hold_near_r210_th60_z120": 2.1510528284875727,
+  "hold_near_r180_th100_z120": 0.8663302712548183,
+  "hold_near_r150_th90_z120": 0.5349337754197296,
+  "hold_near_r210_th85_z80": 0.5639667563418316,
+  "hold_lateral_r180_th40_z80": 1.1911513290908002
+ },
+ "loo_rms_mm": 1.0430890071356296,
+ "n_holds": 7,
+ "intrinsics": {
+  "fx": 918.6089477539062,
+  "fy": 918.8965454101562,
+  "ppx": 633.5445556640625,
+  "ppy": 369.24212646484375,
+  "model": "distortion.inverse_brown_conrady",
+  "coeffs": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ "note": "p_cam = R p_base + t (mm); controller (get_coords) frame for base",
+ "derived_from": "cam_arm_calib_20260926_071021_rotfix.json + camera rotation 0.111 deg after a cat bumped the tripod (pure-rotation fit, SIFT on static regions outside the action envelope: stack session 20260927_165157 frame 90 vs live frame 2026-09-27 ~17:00; 440 inliers, median residual 0.26 px)"
+}

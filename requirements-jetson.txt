@@ -1,0 +1,5 @@
+# Jetson side (arm control). Tested with Python 3.12 on JetPack 7.2.1.
+pymycobot==4.0.7
+pyserial==3.5
+numpy
+# wrist camera scripts use the system OpenCV (python3-opencv 4.8.0 on JetPack)

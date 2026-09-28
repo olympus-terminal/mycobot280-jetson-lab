@@ -1,0 +1,125 @@
+{
+ "name": "supply_hover",
+ "description": "Hover open fingers over each supply spot for 12 s so the user can place a block under them (square to the fingers, tag up).",
+ "created": "2026-09-25",
+ "generator": "scripts/pyramid.py",
+ "start_pose": [
+  69.02,
+  -34.74,
+  -73.98,
+  -13.08,
+  53.96,
+  20.0
+ ],
+ "units": "degrees; speed 1-100",
+ "steps": [
+  {
+   "label": "home",
+   "angles": [
+    69.02,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "open",
+   "gripper": "open"
+  },
+  {
+   "label": "hover_supply0",
+   "angles": [
+    30.08,
+    -26.69,
+    -85.68,
+    -11.47,
+    52.99,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "wait_user_0",
+   "wait": 12
+  },
+  {
+   "label": "hover_supply1",
+   "angles": [
+    33.75,
+    -46.43,
+    -54.77,
+    -18.36,
+    54.91,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "wait_user_1",
+   "wait": 12
+  },
+  {
+   "label": "hover_supply2",
+   "angles": [
+    46.08,
+    -26.69,
+    -85.68,
+    -11.47,
+    52.99,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "wait_user_2",
+   "wait": 12
+  },
+  {
+   "label": "hover_supply3",
+   "angles": [
+    49.75,
+    -46.43,
+    -54.77,
+    -18.36,
+    54.91,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "wait_user_3",
+   "wait": 12
+  },
+  {
+   "label": "hover_supply4",
+   "angles": [
+    64.05,
+    -35.59,
+    -72.66,
+    -13.35,
+    54.05,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "wait_user_4",
+   "wait": 12
+  },
+  {
+   "label": "home",
+   "angles": [
+    69.02,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "name": "to_near",
+ "description": "Far home -> raise -> rotate back -> near home",
+ "created": "2026-09-25",
+ "generator": "scripts/far_side.py",
+ "start_pose": [
+  -103.12,
+  -34.74,
+  -73.98,
+  -13.08,
+  53.96,
+  20.0
+ ],
+ "units": "degrees; speed 1-100",
+ "steps": [
+  {
+   "label": "home_far",
+   "angles": [
+    -103.12,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "raise",
+   "angles": [
+    -103.12,
+    -32.0,
+    -33.6,
+    -49.8,
+    50.6,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "rotate_near",
+   "angles": [
+    70.8,
+    -32.0,
+    -33.6,
+    -49.8,
+    50.6,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "home_near",
+   "angles": [
+    69.02,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  }
+ ]
+}

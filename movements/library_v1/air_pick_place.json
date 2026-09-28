@@ -1,0 +1,137 @@
+{
+ "name": "air_pick_place",
+ "description": "Pick-and-place motion without a block (same poses as the verified pick/place)",
+ "created": "2026-09-25",
+ "start_pose": [
+  69.02,
+  -34.74,
+  -73.98,
+  -13.08,
+  53.96,
+  20.0
+ ],
+ "units": "degrees; speed 1-100",
+ "generator": "scripts/gen_movements.py",
+ "steps": [
+  {
+   "label": "pregrasp",
+   "angles": [
+    69.02,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "open",
+   "gripper": "open"
+  },
+  {
+   "label": "lower_z40",
+   "angles": [
+    69.04,
+    -44.83,
+    -82.65,
+    5.69,
+    53.97,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "lower_z20",
+   "angles": [
+    69.04,
+    -51.76,
+    -83.72,
+    13.7,
+    53.97,
+    20.0
+   ],
+   "speed": 8
+  },
+  {
+   "label": "close",
+   "gripper": "close"
+  },
+  {
+   "label": "lift",
+   "angles": [
+    69.02,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "carry",
+   "angles": [
+    44.02,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "lower_z40",
+   "angles": [
+    44.04,
+    -44.83,
+    -82.65,
+    5.69,
+    53.97,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "lower_z20",
+   "angles": [
+    44.04,
+    -51.76,
+    -83.72,
+    13.7,
+    53.97,
+    20.0
+   ],
+   "speed": 8
+  },
+  {
+   "label": "open",
+   "gripper": "open"
+  },
+  {
+   "label": "lift",
+   "angles": [
+    44.02,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "home",
+   "angles": [
+    69.02,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  }
+ ]
+}

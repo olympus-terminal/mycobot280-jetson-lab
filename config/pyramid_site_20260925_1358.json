@@ -1,0 +1,31 @@
+{
+ "created": "2026-09-25T13:58",
+ "center_r_th": [
+  172,
+  -85
+ ],
+ "pitch_mm": 32,
+ "slots_polar": {
+  "S0": [
+   156.8,
+   -90.86
+  ],
+  "S1": [
+   188.7,
+   -89.86
+  ],
+  "S2": [
+   156.8,
+   -79.14
+  ],
+  "S3": [
+   188.7,
+   -80.14
+  ],
+  "T": [
+   172.0,
+   -85.0
+  ]
+ },
+ "note": "2x2 base (S0-S3, level 0) + T (level 1); visible to the RealSense with the arm at REST"
+}

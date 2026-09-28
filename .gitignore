@@ -1,0 +1,10 @@
+data/
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.mp4
+*.avi
+.env
+assets/voice/
+models/face/

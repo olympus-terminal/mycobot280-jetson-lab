@@ -1,0 +1,333 @@
+{
+ "name": "handoff_calib_far",
+ "description": "Hand-off: user places a tagged block under the open fingers (15 s), pick, 12-pose far-side calibration tour (2 s holds), put the block back, far home",
+ "created": "2026-09-25",
+ "generator": "scripts/far_side.py",
+ "start_pose": [
+  -103.12,
+  -34.74,
+  -73.98,
+  -13.08,
+  53.96,
+  20.0
+ ],
+ "units": "degrees; speed 1-100",
+ "steps": [
+  {
+   "label": "home_far",
+   "angles": [
+    -103.12,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "open",
+   "gripper": "open"
+  },
+  {
+   "label": "hover_handoff",
+   "angles": [
+    -98.12,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "wait_user_place",
+   "wait": 15
+  },
+  {
+   "label": "lower_z40",
+   "angles": [
+    -98.12,
+    -44.75,
+    -82.79,
+    5.74,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "lower_grasp",
+   "angles": [
+    -98.12,
+    -51.68,
+    -83.87,
+    13.75,
+    53.96,
+    20.0
+   ],
+   "speed": 8
+  },
+  {
+   "label": "grasp",
+   "gripper": "close"
+  },
+  {
+   "label": "lift",
+   "angles": [
+    -98.12,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "r150_z80_th-100",
+   "angles": [
+    -120.94,
+    -22.91,
+    -90.68,
+    -11.36,
+    52.41,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r150_z80_th-100",
+   "wait": 2.0
+  },
+  {
+   "label": "r150_z80_th-70",
+   "angles": [
+    -90.94,
+    -22.91,
+    -90.68,
+    -11.36,
+    52.41,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r150_z80_th-70",
+   "wait": 2.0
+  },
+  {
+   "label": "r180_z80_th-100",
+   "angles": [
+    -118.12,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r180_z80_th-100",
+   "wait": 2.0
+  },
+  {
+   "label": "r180_z80_th-70",
+   "angles": [
+    -88.12,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r180_z80_th-70",
+   "wait": 2.0
+  },
+  {
+   "label": "r210_z80_th-100",
+   "angles": [
+    -115.92,
+    -49.18,
+    -49.93,
+    -20.04,
+    55.07,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r210_z80_th-100",
+   "wait": 2.0
+  },
+  {
+   "label": "r210_z80_th-70",
+   "angles": [
+    -85.92,
+    -49.18,
+    -49.93,
+    -20.04,
+    55.07,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r210_z80_th-70",
+   "wait": 2.0
+  },
+  {
+   "label": "r150_z120_th-92",
+   "angles": [
+    -112.94,
+    -18.46,
+    -72.4,
+    -34.09,
+    52.41,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r150_z120_th-92",
+   "wait": 2.0
+  },
+  {
+   "label": "r150_z120_th-62",
+   "angles": [
+    -82.94,
+    -18.46,
+    -72.4,
+    -34.09,
+    52.41,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r150_z120_th-62",
+   "wait": 2.0
+  },
+  {
+   "label": "r180_z120_th-92",
+   "angles": [
+    -110.12,
+    -31.71,
+    -54.72,
+    -35.38,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r180_z120_th-92",
+   "wait": 2.0
+  },
+  {
+   "label": "r180_z120_th-62",
+   "angles": [
+    -80.12,
+    -31.71,
+    -54.72,
+    -35.38,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r180_z120_th-62",
+   "wait": 2.0
+  },
+  {
+   "label": "r210_z120_th-92",
+   "angles": [
+    -107.92,
+    -51.76,
+    -20.88,
+    -46.51,
+    55.07,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r210_z120_th-92",
+   "wait": 2.0
+  },
+  {
+   "label": "r210_z120_th-62",
+   "angles": [
+    -77.92,
+    -51.76,
+    -20.88,
+    -46.51,
+    55.07,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "hold_r210_z120_th-62",
+   "wait": 2.0
+  },
+  {
+   "label": "back_to_handoff",
+   "angles": [
+    -98.12,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "put_down",
+   "angles": [
+    -98.12,
+    -50.94,
+    -83.86,
+    13.0,
+    53.96,
+    20.0
+   ],
+   "speed": 6
+  },
+  {
+   "label": "release",
+   "gripper": "open"
+  },
+  {
+   "label": "clear",
+   "angles": [
+    -98.12,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  },
+  {
+   "label": "home_far",
+   "angles": [
+    -103.12,
+    -34.74,
+    -73.98,
+    -13.08,
+    53.96,
+    20.0
+   ],
+   "speed": 10
+  }
+ ]
+}
