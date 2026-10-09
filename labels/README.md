@@ -4,7 +4,7 @@ Black-on-white labels for lab equipment, printed on the Brother **PT-P710BT** (U
 **24 mm TZe tape**. Each label is 72 mm long: A²S² | GROUP, LAB EQUIPMENT, an EQ № line to write on, and
 PROPERTY OF A2S2 GROUP · DO NOT REMOVE.
 
-First batch: 20 labels, 2026-09-28 (CUPS job `PT-P710BT-7`).
+First batch: 20 labels, 2026-09-28 (CUPS job `PT-P710BT-7`). Second batch: 40 labels, 2026-10-09, on a new 24 mm white/black roll (CUPS job `PT-P710BT-8`, left the queue after about 4.5 min).
 
 ## Print more of the same
 
@@ -83,3 +83,17 @@ are byte-identical).
 
 The design is draft 02 ("Squared") from the logo drafts, with its corner marks removed and the text from draft 05 added.
 The 62 × 29 mm die-cut version and the other drafts were never printed on labels and are not kept here.
+
+## Trimmed word labels (2026-10-09)
+
+`make_ptouch_words_20261009_191028.py "MYCOBOT" "JETSON|ORIN NANO"` (`|` = line break) makes one 1-bit PNG per label,
+128 px tall (the whole 180 dpi head), only as long as the text plus 2 mm each side, in Syncopate Bold capitals
+(cap height 44 dots, about 6.2 mm). It prints the one-job command: `ptouch-print --image a.png --cutmark --image b.png`.
+Add `--writepng dry.png` to that command for a dry run that shows the tape length. MYCOBOT + JETSON/ORIN NANO, one
+each, used 143 mm of tape, printed 2026-10-09.
+
+Do not use the 72 mm CUPS page for short words. On 2026-10-09 TIES, CABLES and CHARGERS (5 each, jobs
+`PT-P710BT-9` to `-11`, `make_storage_tape_20261009_190348.py`) were all printed 72 mm long with a separate cut per
+copy, which wasted a lot of tape. Write lowercase text in capitals, because Syncopate has no real lowercase.
+
+Since 2026-10-09 the Claude skill `~/.claude/skills/ptouch/` (`scripts/ptouch_words.py`) does this in any project. It splits lines automatically, keeps 1 mm flanks, sends all copies as one job, and always does a dry run first.
