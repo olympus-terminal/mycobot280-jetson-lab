@@ -119,6 +119,7 @@ flowchart LR
 
 | Path | Contents |
 |---|---|
+| [`docs/SETUP_PROTOCOL.md`](docs/SETUP_PROTOCOL.md) | Setting up a new copy: parts, software, first contact, first motion, calibration, first pick |
 | [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) | The approach: measure first, human teaching, calibration, corrections, safety, data |
 | [`docs/LAB_NOTEBOOK.md`](docs/LAB_NOTEBOOK.md) | Edited, dated engineering log: what failed, what we measured, what fixed it |
 | [`docs/PICK_PLACE_PROTOCOL.md`](docs/PICK_PLACE_PROTOCOL.md) | The current pick-and-place procedure and its correction table |
@@ -146,27 +147,27 @@ Details and sources: [docs/HARDWARE.md](docs/HARDWARE.md).
 
 ## Setup
 
+**Setting up your own copy: follow [docs/SETUP_PROTOCOL.md](docs/SETUP_PROTOCOL.md)**, step by step from the box to
+the first recorded pick, with a done-when check for each step.
+
 Two machines: the **laptop** (camera, planning, recording) and the **Jetson** (serial link to the arm). The laptop
 reaches the Jetson over ssh.
 
 ```bash
-# Laptop (Ubuntu, Python 3.12)
-python3 -m venv ~/venvs/realsense
-~/venvs/realsense/bin/pip install -r requirements-laptop.txt
+# Laptop (Ubuntu 24.04, Python 3.12): apt packages, RealSense udev rules, ~/venvs/realsense,
+# ssh key login to the Jetson and a copy of this repo at ~/orin-mycobot there
+bash scripts/setup_laptop_20261026_204203.sh nvidia@<jetson-address>
 export JETSON_HOST=nvidia@<jetson-address>     # used by the laptop-side scripts
 
-# Jetson (JetPack 7.2.1, Python 3.12)
-sudo bash scripts/build_ch341.sh               # CH340 serial driver; rerun after kernel updates
-python3 -m venv ~/venvs/mycobot
-~/venvs/mycobot/bin/pip install -r requirements-jetson.txt
-# the laptop scripts rsync scripts/ movements/ models/ config/ to ~/orin-mycobot on the Jetson
+# Jetson (JetPack 7.2.1): apt packages, dialout/video groups, CH340 serial driver, ~/venvs/mycobot
+ssh -t $JETSON_HOST 'bash ~/orin-mycobot/scripts/setup_arm_host_20261026_204203.sh'
 ```
 
 First checks, with no motion:
 
 ```bash
-ssh $JETSON_HOST '~/venvs/mycobot/bin/python ~/orin-mycobot/scripts/probe_arm.py'   # firmware, servo temps, angles
-~/venvs/realsense/bin/python scripts/probe_realsense.py                            # camera streams
+ssh $JETSON_HOST '~/venvs/mycobot/bin/python ~/orin-mycobot/scripts/probe_arm.py --check'   # firmware, temps, angles, go/no-go
+~/venvs/realsense/bin/python scripts/probe_realsense.py                                    # camera streams
 ```
 
 Before any motion, read the safety section of [docs/METHODOLOGY.md](docs/METHODOLOGY.md#safety). The constants in
@@ -175,7 +176,10 @@ They are starting points for yours, not values to trust.
 
 ## Script catalogue
 
-**Arm basics (Jetson):** `probe_arm.py` (read-only), `jog_joint.py`, `move_joints.py`, `sweep_joint.py` (stall
+**Setup:** `setup_laptop_20261026_204203.sh`, `setup_arm_host_20261026_204203.sh`, `build_ch341.sh` (see
+[SETUP_PROTOCOL.md](docs/SETUP_PROTOCOL.md)).
+
+**Arm basics (Jetson):** `probe_arm.py` (read-only; `--check` for go/no-go), `jog_joint.py`, `move_joints.py`, `sweep_joint.py` (stall
 detection + back-off), `guide_joint.py`, `run_movement.py` (movement files with limit, temperature and arrival checks),
 `chain.sh`, `unpark_here.py`, `arm_pose.py`, `teach_local.py` (limp-arm teaching, logged).
 

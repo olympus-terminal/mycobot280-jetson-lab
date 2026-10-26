@@ -10,7 +10,7 @@ largest connected blob >= MIN_PX. Work-area mask: the table disc of radius R_MM 
 camera<->arm calibration, plus the space up to 350 mm above it; each changed pixel is deprojected with the current depth
 and kept only if its 3-D point lies inside that cylinder (the 2-D outline alone also covers the room behind the table).
 
-  cat_guard.py ref                 save data/perception/catguard_ref.npz
+  cat_guard.py ref                 save data/perception/catguard_ref.npz (depth only; --snapshot adds a colour image)
   cat_guard.py check [--speak]     exit 0 clear, 1 intrusion (speaks if --speak)
   cat_guard.py wait [--timeout 180]  loop: check, warn, wait 10 s, until clear (exit 0) or timeout (exit 1)
 """
@@ -95,7 +95,7 @@ def speak(text):
     subprocess.run(["espeak-ng", "-v", "en-us+m3", "-p", "18", "-s", "135", "-a", "160", text], capture_output=True)
 
 
-def check(speak_level=None):
+def check(speak_level=None, snapshot=False):
     ref = np.load(REF)["depth"]
     d, color, intr = depth_frames(5)
     m = work_mask(intr, d.shape)
@@ -112,11 +112,13 @@ def check(speak_level=None):
         k = 1 + int(np.argmax(st[1:, cv2.CC_STAT_AREA]))
         x, y, w, h = st[k, :4]
         rec["bbox"] = [int(x), int(y), int(w), int(h)]
-        snap = os.path.join(HERE, "..", "data", "perception", f"catguard_{datetime.datetime.now():%Y%m%d_%H%M%S}.jpg")
-        cv2.rectangle(color, (int(x), int(y)), (int(x + w), int(y + h)), (0, 0, 255), 3)
-        cv2.imwrite(snap, color)
-        np.savez_compressed(snap.replace(".jpg", "_depth.npz"), depth=d.astype(np.float16))  # replay/tuning
-        rec["snapshot"] = os.path.basename(snap)
+        # An intrusion is usually a person or a pet, so no image is kept unless asked for (--snapshot, for tuning).
+        if snapshot:
+            snap = os.path.join(HERE, "..", "data", "perception", f"catguard_{datetime.datetime.now():%Y%m%d_%H%M%S}.jpg")
+            cv2.rectangle(color, (int(x), int(y)), (int(x + w), int(y + h)), (0, 0, 255), 3)
+            cv2.imwrite(snap, color)
+            np.savez_compressed(snap.replace(".jpg", "_depth.npz"), depth=d.astype(np.float16))  # replay/tuning
+            rec["snapshot"] = os.path.basename(snap)
         if speak_level is not None:
             speak(LINES[min(speak_level, len(LINES) - 1)])
     with open(LOG, "a") as f:
@@ -129,21 +131,25 @@ def main():
     ap.add_argument("cmd", choices=["ref", "check", "wait"])
     ap.add_argument("--speak", action="store_true")
     ap.add_argument("--timeout", type=float, default=180)
+    ap.add_argument("--snapshot", action="store_true",
+                    help="also save a colour image (ref: the empty work area; check/wait: each intrusion). Off by default: "
+                         "an intrusion is usually a person or a pet")
     a = ap.parse_args()
     os.makedirs(os.path.dirname(REF), exist_ok=True)
     if a.cmd == "ref":
         d, color, intr = depth_frames(15)
         np.savez_compressed(REF, depth=d)
-        cv2.imwrite(REF.replace(".npz", ".jpg"), color)
+        if a.snapshot:
+            cv2.imwrite(REF.replace(".npz", ".jpg"), color)
         print(f"reference saved ({np.isfinite(d).mean() * 100:.0f}% valid depth)")
         return 0
     if a.cmd == "check":
-        found, rec = check(0 if a.speak else None)
+        found, rec = check(0 if a.speak else None, a.snapshot)
         print(json.dumps(rec))
         return 1 if found else 0
     t0, level = time.time(), 0
     while time.time() - t0 < a.timeout:
-        found, rec = check(level)
+        found, rec = check(level, a.snapshot)
         print(json.dumps(rec), flush=True)
         if not found:
             if level:

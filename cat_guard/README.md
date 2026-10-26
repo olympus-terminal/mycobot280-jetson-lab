@@ -17,8 +17,9 @@ and scattered a half-built pyramid. (It also catches hands.)
 3. **3-D filter:** each candidate pixel is deprojected with the current depth into the arm frame, using the camera↔arm
    calibration, and kept only if it lies inside the work cylinder (r ≤ 300 mm around the base, table level to +350 mm). The 2-D
    outline of that cylinder also covers everything behind it, which caused false alarms from the room behind the table.
-4. **Decision:** intrusion if the largest connected blob is ≥ 1500 px. The check saves a snapshot with a box, plus the depth, and logs a
-   JSON line.
+4. **Decision:** intrusion if the largest connected blob is ≥ 1500 px. The check logs a JSON line (time, blob size, bounding
+   box). It saves no image by default, because an intrusion is usually a person or a pet. `--snapshot` also saves the colour
+   frame with a box plus the depth, for tuning; delete those files when done, and never publish them.
 
 `scripts/demo_loop.py` and the tower/pyramid scripts call `check` before every move and **wait with no timeout** until it is
 clear. An intrusion is logged, never overridden.

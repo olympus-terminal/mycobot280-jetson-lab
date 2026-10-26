@@ -20,6 +20,7 @@ Usage: ~/venvs/realsense/bin/python scripts/demo_loop.py [--dry-run] [--max-cycl
 """
 import argparse
 import datetime
+import glob
 import json
 import math
 import os
@@ -43,7 +44,8 @@ from arm_local import j6_picker, pose_xyz  # noqa: E402
 from cycle_local import jaw_world  # noqa: E402
 
 PY = os.path.expanduser("~/venvs/realsense/bin/python")
-CALIB = os.path.join(REPO, "config", "cam_arm_calib_20260927_170528_rotfix2.json")   # 2026-09-27 17:05: + 0.111 deg after a cat bumped the tripod (was 20260926_071021_rotfix)
+# newest camera<->arm calibration, like find_blocks.py and cat_guard.py (ours on 2026-09-27: cam_arm_calib_20260927_170528_rotfix2.json)
+CALIB = sorted(glob.glob(os.path.join(REPO, "config", "cam_arm_calib_*.json")))[-1]
 JETSON = os.environ.get("JETSON_HOST", "nvidia@jetson-orin.local")   # ssh target of the Jetson (set JETSON_HOST)
 STOP_FILE = "/tmp/demo_stop"
 START_J5, START_ALL, COOL_J5 = 50, 52, 46   # 2026-09-27: was 46, 50, 41 (user: can go hotter). J5 +10 C per move (max 15) -> ends 56-60; ABORT_C 62, servo cutoff 70

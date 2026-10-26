@@ -10,6 +10,7 @@ joint-space path check against the table (gen_movements.path_ok, grasp minimum),
 Joint readings are logged (t_host, event, label, j1..j6) to --log.
 """
 import csv
+import json
 import os
 import signal
 import sys
@@ -26,7 +27,10 @@ from pymycobot import MyCobot280  # noqa: E402
 PORT = "/dev/serial/by-id/usb-1a86_USB_Serial-if00-port0"
 ABORT_C = 62   # 2026-09-27: was 60; servo cutoff (reg 13) 70 C; J5 rises < 2 C per move step, ~10 C (max 15) per cycle
 TOL_SCALE = np.array([1, 1, 1, 1, 2, 1])
-REST = np.array([63.89, -105.11, -31.11, 38.93, 97.55, 34.89])
+# REST (arm lying on the table, weight on the table) is measured per arm and lives in config/poses.json
+# (docs/SETUP_PROTOCOL.md step 6); gen_movements.py and far_side.py read the same file.
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "config", "poses.json")) as _f:
+    REST = np.array(json.load(_f)["REST"]["angles"], float)
 S_NEAR = np.array([70.8, -32.0, -33.6, -49.8, 50.6, 20.0])
 
 
