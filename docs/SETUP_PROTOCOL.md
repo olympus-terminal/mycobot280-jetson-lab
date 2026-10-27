@@ -274,8 +274,7 @@ reprojection of the tag centre, because PnP range at ~1 m is only good to about 
 
 The new `config/cam_arm_calib_<stamp>.json` is used from then on. Ours reached **0.27 px, leave-one-out 1.0 mm**. Fits that
 used too few visible holds were much worse (13.8 mm, leave-one-out 34 mm) and went to `config/rejected/`. Keep rejected fits
-there rather than deleting them. If the held tag faces away from your camera at many holds, move the camera rather than
-accept a poor fit. The `--put` point (x, y in mm, controller frame) must be clear table within reach.
+there. If the held tag faces away from your camera at many holds, move the camera and record the tour again. The `--put` point (x, y in mm, controller frame) must be clear table within reach.
 
 Then take the cat guard's reference, with the arm parked at REST and nothing in the work area:
 

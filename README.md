@@ -19,8 +19,8 @@ later train world models (e.g. NVIDIA Cosmos).
 
 A companion project, [kouroshSA/xarm6-digital-twin-v5](https://github.com/kouroshSA/xarm6-digital-twin-v5), starts
 from a MuJoCo digital twin of a UFACTORY xArm6 on a rail, with Claude planning tasks in simulation through an
-XArmAPI-compatible interface. This repo goes the other way. It started on the real arm, and simulation is
-used only where it was checked against the hardware.
+XArmAPI-compatible interface. This repo started on the real arm and uses simulation where it was checked against
+the hardware.
 
 | | xarm6-digital-twin-v5 (per its README) | this repo |
 |---|---|---|
@@ -33,7 +33,7 @@ used only where it was checked against the hardware.
 
 The two approaches are complementary. A simulation twin is fast to iterate in. A small real arm shows everything the
 twin leaves out: the arm sags under gravity, servos heat up, cables drag, cameras have blind spots, cats push the
-blocks around, and an opened gripper does not mean a block was placed.
+blocks around, and a block counts as placed only when the camera sees it there.
 
 **[docs/METHODOLOGY.md](docs/METHODOLOGY.md) describes the method in detail.**
 
@@ -42,13 +42,12 @@ blocks around, and an opened gripper does not mean a block was placed.
 Most of the building blocks are standard: AprilTags, hand-eye calibration, numerical IK, kinesthetic teaching, and
 recording RGB-D with joint states. What we think is less common is **how the work is organised and checked**:
 
-1. **An AI coding agent as the lab engineer, with no AI in the motion loop.** Language models in robotics usually sit
-   in the runtime loop, as task planners or vision-language-action policies. Here Claude Code wrote the software,
-   drove the arm over ssh, read the recordings and kept the notebook. The robot itself runs deterministic, reviewable
-   code. The AI's flexibility is used where mistakes are cheap (development), not where they are physical (motion).
+1. **An AI coding agent as the lab engineer; deterministic code in the motion loop.** Language models in robotics
+   usually sit in the runtime loop, as task planners or vision-language-action policies. Here Claude Code wrote the
+   software, drove the arm over ssh, read the recordings and kept the notebook, and the robot runs deterministic,
+   reviewable code. The AI works where mistakes are cheap (development), and motion stays with code a person can review.
 2. **Every constant has a measurement behind it.** Grasp height, jaw offset, regional corrections and thermal limits each
-   trace to a dated measurement in the notebook ([correction table](docs/PICK_PLACE_PROTOCOL.md)). Offsets are not
-   hand-tuned without a record.
+   trace to a dated measurement in the notebook ([correction table](docs/PICK_PLACE_PROTOCOL.md)).
 3. **An independent sensor decides success.** A move counts only if the camera later finds the block tag-up near its
    target. The controller's own "placed" was wrong in practice. For training world models, a label from a second
    sensor is worth more than the script's opinion of itself.
@@ -56,9 +55,9 @@ recording RGB-D with joint states. What we think is less common is **how the wor
    successes, so datasets built from this lab include honest failure cases.
 5. **The operator's observations become measurements.** Two short limp-arm demonstrations fixed problems that parameter
    search had not (§3 of the [methodology](docs/METHODOLOGY.md)). The agent's job was to turn each remark ("it grips on
-   the forward edge") into a number and a test. This needed a few minutes of demonstration, not large teleoperation datasets.
-6. **Drift is detected, not assumed away.** Before a session, SIFT on static scenery checks whether the camera moved.
-   A bumped tripod is corrected by a rotation-only fit in minutes instead of a new calibration tour.
+   the forward edge") into a number and a test. Each fix took a few minutes of demonstration.
+6. **Camera drift is detected and corrected.** Before a session, SIFT on static scenery checks whether the camera moved.
+   A bumped tripod is corrected in minutes by a rotation-only fit to the existing calibration.
 7. **Failures of the process become rules.** Every incident became a check in code (e.g. motion aborts unless the cat
    guard's exit code is tested; [list](docs/CLAUDE_CODE_WORKFLOW.md#incidents-and-the-rules-they-produced)). This is
    standard in safety engineering, but rarely written down in lab robotics.
@@ -129,11 +128,11 @@ flowchart LR
 | `models/mycobot_280_arduino/` | Official URDF (BSD-3-Clause, Elephant Robotics; license included) |
 | `assets/` | Pixel-exact AprilTag strips for a Brother P-touch label printer (and some cat icons) |
 
-Recorded data (`data/`, ~140 GB) is not in this repo.
+Recorded data (`data/`, ~140 GB) is kept outside this repo.
 
 ## Hardware
 
-- myCobot 280 for Arduino. The controller answers at **1,000,000 baud**, not the documented 115200. Its USB bridge is a CH340.
+- myCobot 280 for Arduino. The controller answers at **1,000,000 baud** (the documentation says 115200). Its USB bridge is a CH340.
 - Jetson Orin Nano Super, JetPack 7.2.1. Its kernel lacks the CH340 driver, so `scripts/build_ch341.sh` builds one.
 - Intel RealSense D435i on the **laptop** (USB 3 via USB-C; the Jetson attempts were unstable).
 - A UVC wrist camera on the Jetson (640×480, ~7–8 fps).
@@ -168,7 +167,7 @@ ssh $JETSON_HOST '~/venvs/mycobot/bin/python ~/orin-mycobot/scripts/probe_arm.py
 
 Before any motion, read the safety section of [docs/METHODOLOGY.md](docs/METHODOLOGY.md#safety). The constants in
 the scripts (REST pose, joint windows, grasp heights, corrections) were **measured on our arm, gripper and table**.
-They are starting points for yours, not values to trust.
+Use them as starting points and measure your own.
 
 ## Script catalogue
 
@@ -203,7 +202,7 @@ traced to them.
 
 ## Status and limitations
 
-This is a working lab, not a product. Known open problems are listed in
+This is a working lab. Known open problems are listed in
 [docs/PICK_PLACE_PROTOCOL.md](docs/PICK_PLACE_PROTOCOL.md#known-open-problems). The main ones:
 
 - Placement error is 5–40 mm, mostly because the block's position across the finger width varies from grasp to grasp.
