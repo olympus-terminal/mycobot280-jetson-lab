@@ -37,7 +37,7 @@ blocks around, and an opened gripper does not mean a block was placed.
 
 **[docs/METHODOLOGY.md](docs/METHODOLOGY.md) describes the method in detail.**
 
-## What is different here, and what isn't
+## What is different here
 
 Most of the building blocks are standard: AprilTags, hand-eye calibration, numerical IK, kinesthetic teaching, and
 recording RGB-D with joint states. What we think is less common is **how the work is organised and checked**:
@@ -62,10 +62,6 @@ recording RGB-D with joint states. What we think is less common is **how the wor
 7. **Failures of the process become rules.** Every incident became a check in code (e.g. motion aborts unless the cat
    guard's exit code is tested; [list](docs/CLAUDE_CODE_WORKFLOW.md#incidents-and-the-rules-they-produced)). This is
    standard in safety engineering, but rarely written down in lab robotics.
-
-What this does **not** show: fast motion, dexterous manipulation, a learned policy, or accuracy better than ~5–20 mm. The
-arm is a small hobby-class arm. The claim is about a way of working that got repeatable, verified results from it, and
-should carry over to a larger arm.
 
 ## Architecture
 
